@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background: linear-gradient(135deg, #000000, #1a0000);
+        color: #ff4d4d;
+        font-family: 'Courier New', monospace;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    h1 {
+        font-size: 40px;
+        text-shadow: 0 0 10px red, 0 0 20px darkred;
+        margin-bottom: 30px;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    input {
+        background-color: black;
+        color: red;
+        border: 1px solid red;
+        padding: 8px;
+        margin: 5px;
+        font-size: 16px;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 10px red;
+    }
+
+    input[type="button"] {
+        background-color: darkred;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    input[type="button"]:hover {
+        background-color: red;
+        box-shadow: 0 0 15px red;
+    }
+
+    #resposta {
+        display: block;
+        margin-top: 20px;
+        font-size: 22px;
+        text-shadow: 0 0 5px red;
+    }
+</style>
+</head>
+<body>
+    <h1> Bhaskara o nome do mal</h1>
+    <label for="inputA">A:</label>
+    <input type="number" id="inputA">
+    <br>
+    <label for="inputB">B:</label>
+    <input type="number" id="inputB">
+    <br>
+    <label for="inputC">C:</label>
+    <input type="number" id="inputC">
+    <br>
+    <input type="button" value="CALCULAR" onclick="Calcular()">
+    <br>
+    <span id="resposta">...</span>
+    <script>
+        function Calcular (){
+            let a = parseFloat(document.getElementById("inputA").value);
+            let b = parseFloat(document.getElementById("inputB").value);
+            let c = parseFloat(document.getElementById("inputC").value);
+            let delta = Math.sqrt((b * b) - (4*a*c))
+            let x1 = (-(b) + delta) / (2*a)
+            let x2 = (-(b) - delta) / (2*a)
+        document.getElementById("resposta").innerHTML = "O x1 é " + x1 + "e o x2 é " + x2;
+            }
+    </script>
+</body>
+</html>
